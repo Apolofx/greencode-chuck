@@ -80,7 +80,7 @@ export default function Home() {
             </Link>
             <button
               onClick={fetchNewJoke}
-              className="rounded-lg border-none bg-gray-100 hover:shadow-md hover:bg-gray-200 px-4 py-2 cursor-pointer transition-all duration-200"
+              className="rounded-lg border-none bg-gray-950 text-white hover:shadow-md hover:bg-gray-800 px-4 py-2 cursor-pointer transition-all duration-200"
             >
               new joke
             </button>
