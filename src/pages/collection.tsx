@@ -7,7 +7,8 @@ import IconButton from "@/components/IconButton";
 export default function Collection() {
   const [collection, setCollection] = useState<Joke[]>([]);
   const [store, setStore] = useState<LocalStorageJokeCollection>();
-  // util event emmiter to update jokes collection
+
+  // util "event emmiter" to update jokes collection
   const [updatedStore, setUpdatedStore] = useState(true);
 
   // get store

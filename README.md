@@ -1,9 +1,29 @@
+# Chuck Norris Jokes App
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+### Setup Instructions
 
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Apolofx/greencode-chuck
+   cd greencode-chuck
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
+
+### Running the Development Server
+
+Start the development server with:
 ```bash
 npm run dev
 # or
@@ -16,25 +36,31 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Implementation Notes
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### **State Management and OOP Approach**
+This project uses an **Object-Oriented Programming (OOP)** approach for state management. The state manager is designed to follow **clean architecture principles**, separating the **storage/repository layer** from the **domain layer**. This ensures that the state management logic is modular, testable, and easy to maintain.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Storage/Repository Layer**: Handles the persistence of data (e.g., storing jokes or fetching them from an API). In this project, **local storage** is used as the persistence layer to store jokes locally in the browser.
+- **Domain Layer**: Contains the core business logic, ensuring that the application logic is decoupled from the storage mechanism.
 
-## Learn More
+### **Challenges with State Management**
+The state manager is not natively linked to React's lifecycle, which introduces complexities in ensuring React components re-render when the state changes. To solve this, dummy "events" are emitted by swapping some components local state values. This approach ensures that React detects changes and updates the UI accordingly but is not the recommended way of doing this. This should be done with a state management library like Redux, Zustand or Mobx.
 
-To learn more about Next.js, take a look at the following resources:
+### **Lucide for Icons**
+The project uses [Lucide](https://lucide.dev/) for simple yet consistent icons. Lucide provides a lightweight and customizable icon library that integrates seamlessly with the design of the application.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Dependencies
 
-## Deploy on Vercel
+- **Next.js**: Framework for building React applications.
+- **Lucide**: Icon library for consistent and lightweight icons.
+- **Tailwind CSS**: Utility-first CSS framework for styling.
+- **Local Storage**: Used as the persistence layer for storing jokes.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Feel free to reach out if you have any questions or need further clarification!
